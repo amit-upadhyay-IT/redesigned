@@ -1,9 +1,11 @@
 # redesigned-blog
 
-A clone from jekyll official repo for https://amit-upadhyay-it.github.io repo because this supports localhost.
+A clone from jekyll official repo for working on localhost.
 
 use this:
 
-`bundle exec jekyll serve`
+`$ bundle exec jekyll serve`
 
-after `bundle install`
+after
+
+`$ bundle install`
