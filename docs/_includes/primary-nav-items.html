@@ -24,8 +24,8 @@
 </ul>
 <br>
 <ul>
-  <li class="{% if page.author %}current{% endif %}">
-    <a href="/news/">Data Structures</a>
+  <li class="{% if page.url contains '/data_structures/' %}current{% endif %}">
+    <a href="/data_structures/">Data Structures</a>
   </li>
   <li class="{% if page.url contains '/community/' %}current{% endif %}">
     <a href="/community/">Algo</a>
