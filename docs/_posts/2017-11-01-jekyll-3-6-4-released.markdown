@@ -3,7 +3,7 @@ title: 'Jekyll 3.6.4 Released'
 date: 2017-11-01 21:31:40 +0200
 author: amit-upadhyay-it
 version: 3.6.4
-categories: [release]
+categories: [android]
 ---
 
 3.6.4 is out after 3.6.2, it's a tiny patch release and we invite you to run `bundle update`

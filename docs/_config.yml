@@ -36,6 +36,8 @@ collections:
     output: true
   tutorials:
     output: true
+  android:
+    output: true
 
 name: Amit Upadhyay • Programming Blog
 description: Everything has its two sides and that's what Binomial is all about.
