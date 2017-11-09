@@ -16,9 +16,18 @@
     <a href="/help/">Help</a>
   </li>
   <li>
-    <a href="{{ site.stack_repository }}">SO</a>
+    <a href="{{ site.stack_repository }}">S.O</a>
   </li>
   <li>
     <a href="{{ site.repository }}">GitHub</a>
+  </li>
+</ul>
+<br>
+<ul>
+  <li class="{% if page.author %}current{% endif %}">
+    <a href="/news/">Data Structures</a>
+  </li>
+  <li class="{% if page.url contains '/community/' %}current{% endif %}">
+    <a href="/community/">Algo</a>
   </li>
 </ul>
