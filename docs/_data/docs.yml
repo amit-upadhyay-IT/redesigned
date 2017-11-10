@@ -7,12 +7,24 @@
   - npm_publish
   - 04tooling_in_nodejs
   - 05making_async_api
-  - quickstart
   - installation
   - windows
   - usage
   - structure
   - configuration
+
+- title: Network, Event & Streams
+  docs:
+  - http-server
+  - using-cli-args
+  - tcp-server
+  - node-debugger
+  - event-emitter-pattern
+  - node-buffer
+  - collections
+  - datafiles
+  - assets
+  - migrations
 
 - title: Your Content
   docs:

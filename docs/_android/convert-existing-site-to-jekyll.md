@@ -75,9 +75,6 @@ cd my_jekyll_site
 jekyll serve
 ```
 
-If you have a Gemfile, [use Bundler]({% link _docs/quickstart.md %}#about-bundler) by typing `bundle exec jekyll serve` instead.
-{: .note .info}
-
 When you serve the site, you get a preview URL such as `http://127.0.0.1:4000/` (which is the same as `http://localhost:4000/`). The site's files are built into the `_site` folder by default.
 
 This is a Jekyll site at the most basic functional level. Here's what is happening:
