@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 {: .note}
-# **The Binomial Blog !**
+# **Amit Upadhyay's Blog !**
 
 {: .info .note}
 **Why this blog?** <br>I believe coding education is very freely available, but that a lot of people struggle with it and give up. My mission is to enable better resources to help more people succeed.<br><br>
@@ -14,3 +14,5 @@ permalink: /about/
 	I want to create a product that bridges the gap between the two: where people still primarily use the free resources to learn coding, but have a place to go to when they're stuck. And that doesn't cost an arm and a leg.<br><br>
 	So this is Binomial an awesome platform to deliver tutoring services on, that I would actually love to use. :-)
 
+{: .warning .note}
+<h2><u>Get in touch</u></h2>**Email**:  amitupadhyayemail@gmail.com, developerupadhyay@gmail.com<br> **Contact No.**:  (+91) 77699-42159, (+91) 77678-78592
