@@ -210,13 +210,13 @@ emitted when the socket times out from the inactivity. This is only to notify th
 <table>
   <thead>
     <tr>
-      <th>Events</th>
+      <th>Methods</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><p><code>connect(port<br>[, host]<br>[, connectionListener]<br>):</code></p></td>
+      <td><p><code>connect(port<br>[, host]<br>[, connListener]<br>):</code></p></td>
       <td><p>
 
 This connects the socket to the host at the specified port number. If host is empty, localhost is assumed. This is usually not needed to be called, since the net.createConnection() method automatically does this for you.
@@ -255,39 +255,39 @@ Similar to duplex stream's write function. The callback is executed one write is
       </p></td>
     </tr>
     <tr>
-      <td><p><code>write(data<br>[, encodingType]<br>[, callback]<br>):</code></p></td>
+      <td><p><code>pause()<br>and<br>resume():</code></p></td>
       <td><p>
-Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
+Similar to non-flowing streams.
       </p></td>
     </tr>
 
     <tr>
-      <td><p><code>setEncoding([en])</code></p></td>
+      <td><p><code>setTimeout(<br>timeout<br>[, callback]<br>):</code></p></td>
       <td><p>
 
-       sets the encoding.
+       Sets the timeout in milliseconds. THis is the idle time period of the socket after which the <code>timeout</code> event is emitted. This is however doesn't sever connection. The optional callback becomes a one time listener to the <code>timeout</code> event.
 
       </p></td>
     </tr>
     <tr>
-      <td><p><code>write(data<br>[, encodingType]<br>[, callback]<br>):</code></p></td>
+      <td><p><code>setNoDelay(bool):</code></p></td>
       <td><p>
-Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
+if true, disables the Nagle Algorithm (This algorithm, buffers data before sending it off)
       </p></td>
     </tr>
 
     <tr>
-      <td><p><code>setEncoding([en])</code></p></td>
+      <td><p><code>setKeepAlive(<br>[enable]<br>[, initialDelay]<br>):</code></p></td>
       <td><p>
 
-       sets the encoding.
+       The keepalive packet is sent to check if the link between server and client is active or not. Set the initialDelay value to set the delay between last data packet received and the first keepAlive probe. (See http://en.wikipedia.ord/wiki/Keepalive to understand Keep Alive functionality)
 
       </p></td>
     </tr>
     <tr>
-      <td><p><code>write(data<br>[, encodingType]<br>[, callback]<br>):</code></p></td>
+      <td><p><code>address():</code></p></td>
       <td><p>
-Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
+Returns the bound address of the socket.
       </p></td>
     </tr>
   </tbody>
@@ -295,26 +295,15 @@ Similar to duplex stream's write function. The callback is executed one write is
 </div>
 
 
-- connect(port[, host][, connectionListener]): This connects the socket to the host at the specified port number. If host is empty, localhost is assumed. This is usually not needed to be called, since the net.createConnection() method automatically does this for you.
-- setEncoding([encoding])
-- write(data[, encodingType][, callback]): Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
-- end([data][, encoding]): Similar to duplex stream's end(). This half-closes the socket. However the server may still send data.
-- destroy(): This ensures no more I/O on this socket.
-- pause() and resume(): Similar to non-flowing streams.
-- setTimeout(timeout[, callback]): Sets the timeout in milliseconds. THis is the idle time period of the socket after which the 'timeout' event is emitted. This is however doesn't sever connection. The optional callback becomes a one time listener to the 'timeout' event.
-- setNoDelay(Boolean): if true, disables the Nagle Algorithm (This algorithm, buffers data before sending it off)
-- setKeepAlive([enable][, initialDelay]): The keepalive packet is sent to check if the link between server and client is active or not. Set the initialDelay value to set the delay between last data packet received and the first keepAlive probe. (See http://en.wikipedia.ord/wiki/Keepalive to understand Keep Alive functionality)
-- address(): Returns the bound address of the socket.
-
 ## Socket properties:
 
-- remoteAddress: Remote IP address
-- remoteFamily: IP address family of the remote IP
-- remotePort: Remote port number
-- localAddress: Local IP address
-- localPort: Local port number
-- bytesRead: Amount of bytes received
-- bytesWritten: Amount of bytes sent
+- `remoteAddress`: Remote IP address
+- `remoteFamily`: IP address family of the remote IP
+- `remotePort`: Remote port number
+- `localAddress`: Local IP address
+- `localPort`: Local port number
+- `bytesRead`: Amount of bytes received
+- `bytesWritten`: Amount of bytes sent
 
 
 ## A TCP client
