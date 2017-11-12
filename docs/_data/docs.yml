@@ -30,11 +30,13 @@
   - udp-server-client
   - detailed-http
 
-- title: Deployment
+- title: MongoDB, Express
   docs:
-  - github-pages
-  - deployment-methods
-  - continuous-integration
+  - mongodb
+  - mongodb-on-cloud
+  - mongoose
+  - express
+  - express-generator
 
 - title: Miscellaneous
   docs:
