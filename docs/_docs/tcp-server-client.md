@@ -158,12 +158,142 @@ It is created in two ways:
 
 ## Socket Events: Beside the usual Stream events
 
-- connect: emitted when socket connection is established successfully.
-- lookup: emitted after resolving the host name but before connecting. The callback has err, address and family agruments.
-- timeout: emitted when the socket times out from the inactivity. This is only to notify that the socket it idle. Socket has to be closed explicitly.
-- other stream related events are :'data', 'error', 'close', 'end', 'drain'.
+
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>Events</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p><code>connect</code></p></td>
+      <td><p>
+
+emitted when socket connection is established successfully.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>lookup</code></p></td>
+      <td><p>
+
+       emitted after resolving the host name but before connecting. The callback has err, address and family agruments.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>timeout</code></p></td>
+      <td><p>
+emitted when the socket times out from the inactivity. This is only to notify that the socket it idle. Socket has to be closed explicitly.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>other</code></p></td>
+      <td><p>
+
+        Other stream related events are :<code>data</code>, <code>error</code>, <code>close</code>, <code>end</code>, <code>drain</code>.
+
+      </p></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 ## Socket methods:
+
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>Events</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p><code>connect(port<br>[, host]<br>[, connectionListener]<br>):</code></p></td>
+      <td><p>
+
+This connects the socket to the host at the specified port number. If host is empty, localhost is assumed. This is usually not needed to be called, since the net.createConnection() method automatically does this for you.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>setEncoding([en])</code></p></td>
+      <td><p>
+
+       sets the encoding.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>write(data<br>[, encodingType]<br>[, callback]<br>):</code></p></td>
+      <td><p>
+Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>end([data]<br>[, encoding]<br>):</code></p></td>
+      <td><p>
+
+        Similar to duplex stream's end(). This half-closes the socket. However the server may still send data.
+
+      </p></td>
+    </tr>
+
+    <tr>
+      <td><p><code>destroy()</code></p></td>
+      <td><p>
+
+       This ensures no more I/O on this socket.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>write(data<br>[, encodingType]<br>[, callback]<br>):</code></p></td>
+      <td><p>
+Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
+      </p></td>
+    </tr>
+
+    <tr>
+      <td><p><code>setEncoding([en])</code></p></td>
+      <td><p>
+
+       sets the encoding.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>write(data<br>[, encodingType]<br>[, callback]<br>):</code></p></td>
+      <td><p>
+Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
+      </p></td>
+    </tr>
+
+    <tr>
+      <td><p><code>setEncoding([en])</code></p></td>
+      <td><p>
+
+       sets the encoding.
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>write(data<br>[, encodingType]<br>[, callback]<br>):</code></p></td>
+      <td><p>
+Similar to duplex stream's write function. The callback is executed one write is complete - which may not be immediately.
+      </p></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 - connect(port[, host][, connectionListener]): This connects the socket to the host at the specified port number. If host is empty, localhost is assumed. This is usually not needed to be called, since the net.createConnection() method automatically does this for you.
 - setEncoding([encoding])
