@@ -7,11 +7,6 @@
   - npm_publish
   - 04tooling_in_nodejs
   - 05making_async_api
-  - installation
-  - windows
-  - usage
-  - structure
-  - configuration
 
 - title: Network, Event & Streams
   docs:
@@ -25,28 +20,16 @@
   - streams-2
   - file-upload-formidable
 
-- title: Your Content
+- title: Network Topology
   docs:
-  - frontmatter
-  - posts
-  - drafts
-  - pages
-  - static-files
-  - variables
-  - collections
-  - datafiles
-  - assets
-  - migrations
-
-- title: Customization
-  docs:
-  - templates
-  - includes
-  - permalinks
-  - pagination
-  - plugins
-  - themes
-  - extras
+  - transport-layer
+  - encryption-decryption
+  - tcp-server-client
+  - tls-ssl
+  - environment-variables
+  - udp-server-client
+  - udp-chat-client
+  - detailed-http
 
 - title: Deployment
   docs:
