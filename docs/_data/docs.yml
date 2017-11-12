@@ -28,7 +28,6 @@
   - tls-ssl
   - environment-variables
   - udp-server-client
-  - udp-chat-client
   - detailed-http
 
 - title: Deployment
