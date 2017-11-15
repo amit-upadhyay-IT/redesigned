@@ -96,7 +96,7 @@ Every document is identified by a unique `id` provided by MongoDB.
 
 The first thing which you can do is, create a project where you can talk to MongoDB from within your local application (i.e. using a programming language and interacting with MongoDB).
 
-When we are working with a third party software peace, we need some kind of a 'driver', or some kind of a interface that talk from our application to the other application and vice-versa.
+When we are working with a third party software peace, we need some kind of a `driver`, or some kind of a interface that talk from our application to the other application and vice-versa.
 
 For working with node.js mongodb has a native mongodb client.
 
