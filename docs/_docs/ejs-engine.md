@@ -80,3 +80,113 @@ app.listen(port, function(){
 
 });
 ```
+
+
+Now lets create the `ejs` (ejs file are the template files) files. We will create some folder by name `views`. If you create a folder by different name then that doesn't work by default. In that case you will have to write extra lines in `app.js` file. Now inside this folder `views` we just need to create
+two file which are mainly like `HTML` kind. It will have some JavaScript code sprinkled (embedded) somewhere inside.
+
+Lets first create `home.ejs` file inside `views` folder.
+
+```html
+<html>
+	<body>
+	<ul>
+		<li> <a href = "/"> Home </a> </li>
+		<li> <a href = "/london"> London </a> </li>
+		<li> <a href = "/newyork"> New York </a> </li>
+		<li> <a href = "/paris"> Paris </a> </li>
+		<li> <a href = "/newdelhi"> New Delhi </a> </li>
+	</ul>
+	<h1> <%=title %> </h1>
+	<h4> <%=headline %> </h4>
+	Home Page
+	</body>
+</html>
+```
+
+**Understanding <%=title %>**
+
+whatever JavaScript code that you want to embed here in .ejs file is written inside `<%= %>`. So this is just `embedded JavaScript writing notation`. There will be a variable with name title and whatever be the value of variable title that will be substituted within `h1` and that will get printed.
+
+
+
+Lets now create `city.ejs` file:
+
+```html
+<html>
+	<body>
+	<ul>
+		<li> <a href = "/"> Home </a> </li>
+		<li> <a href = "/london"> London </a> </li>
+		<li> <a href = "/newyork"> New York </a> </li>
+		<li> <a href = "/paris"> Paris </a> </li>
+		<li> <a href = "/newdelhi"> New Delhi </a> </li>
+	</ul>
+	<h1> <%=title %> </h1>
+	<h4> <%=headline %> </h4>
+	City Page
+	</body>
+</html>
+```
+
+
+Now lets move back to app.js file. So whenever the user goes to the web site and just does `something.com/`. Then `app.get('/')` callback will get executed.
+
+### Example of `app.js` file:
+
+```js
+var exp = require("express");
+
+var app = exp();
+
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res){
+
+    res.render('home.ejs', {title:"I Love my city",
+    headline:"Every city has its own personality"});
+
+});
+
+app.get('/:city', function(req, res){
+
+    var cityname = req.params.city;
+    var titleValue;
+    var headlineValue;
+
+    // based on city I'll modify the titleValue and headlineValue
+    if (cityname === 'newyork')
+    {
+        titleValue = "New York";
+        headlineValue = "Business capital of the world";
+    }
+
+    else if (cityname == 'london')
+    {
+        titleValue = "London";
+        headlineValue = "City of Thames";
+    }
+
+    else if (cityname == 'newdelhi')
+    {
+        titleValue = "New Delhi";
+        headlineValue = "Place where I live";
+    }
+
+    else if (cityname == 'paris')
+    {
+        titleValue = "Paris";
+        headlineValue = "Place where I never visited";
+    }
+
+    res.render('city.ejs', {title:titleValue, headline:headlineValue});
+});
+
+
+var port = process.env.PORT || 4000;
+
+app.listen(port, function(){
+
+    console.log("Server is listening on port "+port);
+});
+```
