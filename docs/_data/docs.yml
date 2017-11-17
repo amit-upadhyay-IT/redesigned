@@ -42,4 +42,6 @@
   docs:
   - get-request-params
   - what-is-public-dir
+  - express-template-engines-intro
+  - ejs-engine
 
