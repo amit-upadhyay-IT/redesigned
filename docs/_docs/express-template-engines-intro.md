@@ -30,10 +30,12 @@ In any node.js application that we are writing to create a web server say your w
 EG:
 something.com/page1,
 something.com/page2 ... so on.
-And with different url user generally go to different pages and page navigation happens within the application itself. So far we are trying to create HTML page on the server side but it is very well possible that within your code itself you can write your HTML tags within “”.
+And with different url user generally go to different pages and page navigation happens within the application itself. So far we are trying to create HTML page on the server side but it is very well possible that within your code itself you can write your HTML tags within “ ”.
 
-EG:
+Example:
+```js
 res.write(“<h1>HI</h1>”);
+```
 
 So this is one very crude way of sending a HTML to the end users. And this is where templates engine come in play and what they do is they provide a very nice way for creating HTML pages. In a typical HTML page that is seen on your browser you have static tags in which data is spread everywhere like some data you will find in tabular form which are written in <table> tag. So basically there are some structural elements of HTML and within that HTML page itself you have your data spread in some or other component of HTML page.
 
@@ -43,12 +45,6 @@ populates those JavaScript variables which are used in the HTML where you have p
 We can use the application generator tool to quickly create an application skeleton. We can use `express-generator` package which will let us easily generate the infrastructure for new projects. Since we are at the beginning of learning so we will not use application generator tools.
 
 So right now I'm not going to tell about code generator now, though its a very small and easy thing to learn but once the code gets generated then you won't be able to understand what to change, why to change and things like that. So that's why we will be generating our code manually and once you become proficient with the template engines then we will generated the code and then make changes to the generated code to suite our needs.
-
-### EJS(Embedded JavaScript templates engine)
-
-First we will create a very basic EJS template page and then we will try to modularize it by dividing that page to multiple files, so initially we will be having only one file and later on we will divide code into multiple files.
-
-
 
 ### A bit about bootstrap
 Twitter bootstrap is the technology which is used to decorate your pages mainly it allows you to write an application with css styling and little bit of inbuilt JavaScript based styling so that the same application without any distortion can be run on mobile devices also. So if your front end of your application is utilizing twitter bootstrap library then your pages will look nice on web as well as on the mobile devices. It is more
