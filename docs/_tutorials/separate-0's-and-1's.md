@@ -78,51 +78,7 @@ int main()
   </p>
 </div>
 
-Using kadane's algorithm to solve this problem:
-
-- Simple idea in Kadane's algo is to look for all positive contiguous segments of the array(max_ending_here is used for this purpose).
-
-- And keep track of maximum sum contiguous segment among all positive segments(max_so_far is used for this).
-
-- Each time we get a positive sum, we compare it with max_so_far and update max_so_far if it is greater than max_so_far.
-
-
-#### Algo:
-
-**Initialize**:
-```c
-max_so_far = 0
-max_ending_here = 0
-```
-Loop for each element of the array:
-
-a)
-```c
-max_ending_here = max_ending_here+a[i];
-if(max_ending_here<0) 
-{
-	max_ending_here = 0
-}
-```
-
-c)
-
-```c
-if (max_so_far < max_ending_here)
-{
-	max_so_far = max_ending_here;
-}
-
-return max_so_far;
-```
-Above was a normal introduction to Kadane's algo for finding the maximum sum subarray.
-
-Now we can use this approach to find maximum difference in the given array.
-
-Step 1: Create difference array: it has elements as the difference between two successive elements i.e. `diff[i] = arr[i+1]-arr[i];`
-
-Step 2: The maximum sum subarray in difference array is the maximum difference in original array where the greater element comes later than the smaller one.
-
+Use partition algorith of quick sort, keep the pivot as 1 in the parition algorithm.
 
 ### Code:
 
