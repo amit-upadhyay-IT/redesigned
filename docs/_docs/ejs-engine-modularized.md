@@ -74,4 +74,76 @@ app.get('/',routes.home);
 app.get('/:city',routes.city);
 ```
 
+### Using the second approach (creating different files different routes):
 
+`file path: /routes/home.js`
+
+```js
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('home',{title:'iLoveMyCity', headline:'We believe that every city have something to say'});
+});
+
+module.exports = router;
+```
+
+`file path: /routes/city.js`
+
+```js
+var express = require('express');
+var router = express.Router();
+
+/* GET city listing. */
+router.get('/', function(req, res, next) {
+    var cityName=req.params.city;
+    var title,heading;
+    var imageCount=4;
+
+    if(cityName==='berlin'){
+       title="Berlin";
+       heading="Berlin: Where love is in the air";
+    }
+    else if(cityName==='paris'){
+       title="Paris";
+       heading="Paris: Good talkers are only found in Paris";
+    }
+    else if(cityName==='madrid'){
+       title="Madrid";
+       heading="Madrid: Buzz, Beautiful architecture and Football";
+    }
+    else if(cityName==='london'){
+       title="London";
+       heading="London: Sparkling, Still, Food, Gorgeous";
+    }
+    else if(cityName==='newyork'){
+       title="New York";
+       heading="New York: Come to New York to become someone new";
+       imageCount=6;
+    }
+
+    res.render('city',{
+        title:title,
+        headline:heading,
+        city:cityName,
+        numberOfImages:imageCount
+  });
+});
+
+module.exports = router;
+```
+
+Now to use them in your main file (`app.js` or `index.js`), you need to write:
+
+```js
+var index = require('./routes/home');
+var users = require('./routes/city');
+...
+...
+app.use('/', home);
+app.use('/city', city);
+```
+
+Now it's upto you which design pattern you will like to use. In my case I would like to use the later one if I have lots of routes in my application otherwise the first approach would be better.
