@@ -147,3 +147,49 @@ app.use('/city', city);
 ```
 
 Now it's upto you which design pattern you will like to use. In my case I would like to use the later one if I have lots of routes in my application otherwise the first approach would be better.
+
+
+## EJS partials
+
+The way we segregated the code of `app.js` into `app.js` and `routes.js` similarly anything which is being repeated in `home.ejs` and `city.ejs` file then we use `EJS partials`. If you see then you will find that the `menu` part inside both the `.ejs` file are same. So this is not a good idea to keep same code in different files. So we extract the common code and keep it somewhere which we can refer later. For doing this, create a new folder under `views` folder with name `partials` (this is just a convention, we can have any name for the folder).
+
+
+Create a new file with name `menu.ejs` (name can be anything of your choice).Code of `menu.ejs`:
+
+```html
+<ul>
+<li> <a href = "/"> Home </a> </li>
+<li> <a href = "/london"> London </a> </li>
+<li> <a href = "/newyork"> New York </a> </li>
+<li> <a href = "/paris"> Paris </a> </li>
+<li> <a href = "/newdelhi"> New Delhi </a> </li>
+</ul>
+```
+
+Also change your `home.ejs` file and `city.ejs` file:
+
+`city.ejs`
+
+```html
+<html>
+<body>
+<% include partials/menu.ejs %>
+<h1> <%=title %> </h1>
+<h4> <%=headline %> </h4>
+City Page
+</body>
+</html>
+```
+
+`home.ejs`
+
+```html
+<html>
+<body>
+<% include partials/menu.ejs %>
+<h1> <%=title %> </h1>
+<h4> <%=headline %> </h4>
+Home Page
+</body>
+</html>
+```
