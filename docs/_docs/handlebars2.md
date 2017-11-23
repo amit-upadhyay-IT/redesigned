@@ -1,5 +1,5 @@
 ---
-title: Handlebars Engine Cont.
+title: Handlebars Engine part 2
 permalink: /docs/handlebars2/
 ---
 
