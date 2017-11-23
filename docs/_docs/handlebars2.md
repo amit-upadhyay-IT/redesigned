@@ -5,7 +5,7 @@ permalink: /docs/handlebars2/
 
 Now after writing the different routes to the applicatoin, lets write the `views`. As we have seen in the `routes.js` that we need `login.handlebars`, `landingpage.handlebars`, `city.handlebars`. We may also need a default layout, so for that I will also create `layout.handlebars` this will get open when the handlebars will get initialized for the first time.
 
-Lets say that we have seperated the common code from `login.handlebars`, `landingpage.handlebars` and `city.handlebars` and put them into `partials`.
+Lets say that we have seperated the common code from `login.handlebars`, `landingpage.handlebars` and `city.handlebars` and put them into `partials`, so for that we write different handlebars in `partials` too. Below are the code snippets.
 
 **NOTE**: The front-end is made using bootstrap(don't hesitate whenever you see stylesheet files from bootstrap).
 
@@ -176,4 +176,23 @@ Now we may also need to handle `404` and `500` errors on page. Thus lets make tw
  </div>
 ```
 
+Now lets see the `layout` file.
 
+{: .unreleased .note}
+**partials code**<br>file path: `./views/layouts/layout.handlebars`
+
+```html
+<html>
+<head>
+  { {>includeHead}}
+</head>
+<body>
+  { {>includeMenu}}
+  
+  { { {body}}}
+  { {>includeFoot}}
+</body>
+</html>
+```
+
+Next you will see the `public` dir.
