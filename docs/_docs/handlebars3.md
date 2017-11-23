@@ -21,7 +21,7 @@ In the `public` dir we need to keep the images and `css` files.
 ```
 These classes (`cursive-text-large` and `cursive-text-small`) are being used in our `handlebars` files.
 
-You also need to add images in your `public` dir. The images are the being used in the `routes.js` file.
+You also need to add images in your `public` dir. The images are the being used in the `routes.js` file. You can see [this Github dir](https://github.com/amit-upadhyay-IT/fantastic-node-journey/tree/master/chapter6/example1_handlebars_eg/public) where I have a kept collection of images.
 
 Now lets see the main file (app.js):
 
