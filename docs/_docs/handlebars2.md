@@ -66,7 +66,7 @@ Lets say that we have seperated the common code from `login.handlebars`, `landin
 ```
 
 {: .unreleased .note}
-**partials code**<br>file path: `./views/city.handlebars`
+**views code**<br>file path: `./views/city.handlebars`
 
 ```html
 <div class="container">
@@ -85,7 +85,7 @@ Lets say that we have seperated the common code from `login.handlebars`, `landin
 
 
 {: .unreleased .note}
-**partials code**<br>file path: `./views/landingpage.handlebars`
+**views code**<br>file path: `./views/landingpage.handlebars`
 
 ```html
 <div class="container">
@@ -113,7 +113,7 @@ Lets say that we have seperated the common code from `login.handlebars`, `landin
 ```
 
 {: .unreleased .note}
-**partials code**<br>file path: `./views/login.handlebars`
+**views code**<br>file path: `./views/login.handlebars`
 
 ```html
 <div class="container">
@@ -140,7 +140,7 @@ Lets say that we have seperated the common code from `login.handlebars`, `landin
 Now we may also need to handle `404` and `500` errors on page. Thus lets make two more handlebars.
 
 {: .unreleased .note}
-**partials code**<br>file path: `./views/404.handlebars`
+**views code**<br>file path: `./views/404.handlebars`
 
 ```html
  <div class="container">
@@ -157,7 +157,7 @@ Now we may also need to handle `404` and `500` errors on page. Thus lets make tw
 ```
 
 {: .unreleased .note}
-**partials code**<br>file path: `./views/500.handlebars`
+**views code**<br>file path: `./views/500.handlebars`
 
 ```html
  <div class="container">
@@ -179,7 +179,7 @@ Now we may also need to handle `404` and `500` errors on page. Thus lets make tw
 Now lets see the `layout` file.
 
 {: .unreleased .note}
-**partials code**<br>file path: `./views/layouts/layout.handlebars`
+**layouts code**<br>file path: `./views/layouts/layout.handlebars`
 
 ```html
 <html>
