@@ -1,6 +1,6 @@
 ---
 title: 'Extended slices'
-date: 2016-02-02 12:01:40 +0200
+date: 2016-02-12 12:01:40 +0200
 author: amit-upadhyay-it
 categories: [python]
 ---

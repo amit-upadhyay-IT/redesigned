@@ -1,6 +1,6 @@
 ---
 title: 'Reverse string Python'
-date: 2016-02-03 12:01:40 +0200
+date: 2016-02-13 12:01:40 +0200
 author: amit-upadhyay-it
 categories: [python]
 ---
