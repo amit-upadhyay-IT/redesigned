@@ -198,9 +198,153 @@ for i in range ( len (L1)):
 > Note: for loop in empty list is never executed
 
 
+### Appending in the list
+
+Appending a list is adding more element(s) at the end of the list. To add new elements at the end of the list, Python provides a method append ( ).
+
+Syntax is:
+
+```py
+# List. append (item)
+
+L1. append (70)
+```
+
+This will add 70 to the list at the end, so now 70 will be the 5 th element of the list, as it already have 4 elements.
+
+Using `append()`, only one element at a time can be added. For adding more than one element, `extend()` method can be used, this can also be used to add elements of another list to the existing one.
+
+Example:
+
+```py
+>>> A = [100, 90, 80, 50]
+>>> L1. extend (A)
+>>> print L1
+[1, 2, 5, 4, 70, 100, 90, 80, 50]
+```
+
+will add all the elements of list `A` at the end of the list `L1`.
 
 
+```py
+>>>print A
+[100, 90, 80, 50]
+```
 
+> Remember: `A` remains unchanged.
+
+
+### Updating array elements
+
+Updating an element of list is, accomplished by accessing the element & modifying its value in place. It is possible to modify a single element or a part of list. For first type, we use index to access single element and for second type, list slice is used. We have seen examples of updations of an element of list. 
+
+Lets update a slice.
+
+Example1:
+
+```py
+>>> L1 [1:2] = [10, 20]
+>>> print L1
+# will produce
+[1, 10, 20, 4, 70, 100, 90, 80, 50]
+```
+
+Example2:
+
+```py
+>>> A=[10, 20, 30, 40]
+>>> A [1:4] = [100]
+>>> print A
+# will produce
+[10, 100]
+```
+As lists are sequences, they support many operations of strings. For example, operator `+` & `*` results in concatenation & repetition of lists. Use of these operators generate a new list.
+
+Example:
+
+```py
+>>> a= L1+L2
+
+# will produce a 3 rd list a containing elements from L1 & then L2. a will contain
+[1, 10, 20, 4, 70, 100, 90, 80, 50, “Delhi”, “Chennai”, “Mumbai”]
+
+>>> [1, 2, 3] + [4, 5, 6]
+[1, 2, 3, 4, 5, 6]
+
+>>> ['Hi!']* 3
+['Hi!', 'Hi!', 'Hi!']
+```
+> It is important to know that `+` operator in lists expects the same type of sequence on both the sides otherwise you get a type error.
+
+If you want to concatenate a list and string, either you have to convert the list to string or string to list.
+
+
+Example:
+
+```py
+>>> str([11, 12]) + “34”
+'[11, 12] 34'
+>>> “[11,12]” + “34”
+'[11, 12] 34'
+
+
+>>> [11, 12] + list (“34”)
+[11, 12, '3', '4']
+>>> [11, 12] + [“3”, “4”]
+```
+
+
+### Deleting Elements
+
+It is possible to delete/remove element(s) from the list. There are many ways of doing:
+
+(i) If index is known, we can use `pop()` or del
+
+(ii) If the element is known, not the index, `remove ()` can be used.
+
+(iii) To remove more than one element, `del()` with list `slice` can be used.
+
+(iv) Using assignment operator.
+
+**Let us study all the above methods in details**:
+
+#### Pop()
+
+It removes the element from the specified index, and also return the element which was removed.
+
+Example:
+
+```py
+>>> L1 = [1, 2, 5, 4, 70, 10, 90, 80, 50]
+>>> a= L1.pop (1) # here the element deleted will be returned to ‘a’
+>>> print L1
+[1, 5, 4, 70, 10, 90, 80, 50]
+>>> print a
+2
+
+# If no index value is provided in pop ( ), then last element is deleted.
+>>>L1.pop ( )
+50
+```
+
+**del** removes the specified element from the list, but does not return the deleted value.
+
+```py
+>>> del L1 [4]
+>>> print L1
+[1, 5, 4, 70, 90, 80]
+```
+
+### remove ()
+
+In case, we know the element to be deleted not the index, of the element, then `remove()` can be used.
+
+```py
+>>> L1. remove (90) # will remove the value 90 from the list
+
+>>> print L1
+[1, 5, 4, 70, 80]
+```
 
 
 
