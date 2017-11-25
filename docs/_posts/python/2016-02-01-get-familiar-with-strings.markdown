@@ -1,6 +1,6 @@
 ---
 title: 'Get familiar with strings'
-date: 2016-10-05 12:01:40 +0200
+date: 2016-02-01 12:01:40 +0200
 author: amit-upadhyay-it
 categories: [python]
 ---
@@ -123,7 +123,7 @@ Consider the given string
 A = 'Save Earth'
 ```
 
-Let‟s understand Slicing in strings with the help of few examples.
+Let's understand Slicing in strings with the help of few examples.
 
 ```sh
 >>>A=‟Save Earth‟
@@ -193,12 +193,45 @@ Omitting the first index, directs the python interpreter to start extracting the
 > **Note**: In the table given above, len( ) is a built in function and so we don‟t need import the string module. For all other functions import string statement is required for their successful execution.
 
 
+### Lets discuss some interesting strings constants defined in string module:
 
+`string.ascii_uppercase`:
 
+The command displays a string containing uppercase characters .
 
+`string.ascii_lowercase`:
 
+The command displays a string containing all lowercase characters .
 
+`string.ascii_letters`:
 
+The command displays a string containing both uppercase and lowercase characters.
+
+`string.digits`:
+
+The command displays a string containing digits.
+
+`string.hexdigits`:
+
+The command displays a string containing hexadecimal characters.
+
+`string.octdigits`:
+
+The command displays a string containing octal characters.
+
+`string.punctuations`:
+
+The command displays a string containing all the punctuation characters.
+
+`string.whitespace`:
+
+The command displays a string containing all ASCII characters that are considered whitespace. This includes the characters space, tab, linefeed, return, formfeed, and vertical tab.
+
+`string.printable`:
+
+The command displays a string containing all characters which are considered printable like letters, digits, punctuations and whitespaces.
+
+>Note: Import string module to get the desired results with the commands mentioned above.
 
 
 Thank you 🎂 👏
