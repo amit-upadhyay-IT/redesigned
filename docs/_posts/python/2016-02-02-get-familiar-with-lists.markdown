@@ -20,7 +20,7 @@ Index here, has to be an integer value- which can be positive or negative. Posit
 
 Let's look at some example of simple list:
 
-```sh
+```py
 >>> L1 = [1, 2, 3, 4] # list of 4 integer elements.
 
 >>> L2 = [“Delhi”, “Chennai”, “Mumbai”] #list of 3 string elements.
@@ -36,7 +36,7 @@ To change the value of element of list, we access the element & assign the new v
 
 Example:
 
-```sh
+```spyh
 >>> print L1 # let‟s get the values of list before change
 >>> L1 [2] = 5
 >>> print L1 # modified list
@@ -60,17 +60,17 @@ L5=L1 [:]
 ```
 Here L5 is created as a copy of L1.
 
-```sh
->>>print L5
+```py
+>>> print L5
 L6 = L1 [0:2]
->>>print L6
+>>> print L6
 # will create L6 having first two elements of L1.
 ```
 
 iii) List comprehension:
 
 Example:
-```sh
+```py
 >>> S= [x**2 for x in range (10)]
 >>> print S
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
@@ -106,6 +106,100 @@ if id(A) == id(B):
 print hex(id(A))
 print hex(id(B))
 ```
+## Accessing an element of list
+
+For accessing an element, we use index and we have already seen example doing so. To access an element of list containing another list, we use pair of index. Lets access elements of L5 list. Also a sub-list of list can be accessed using list slice.
+
+### List Slices
+
+Slice operator works on list also. We know that a slice of a list is its sub-list. For creating a list slice, we use `[n:m]` operator.
+
+```py
+>>> print L5 [0]
+1
+>>> print L5 [2]
+[6, 7, 8]
+>>> print L5 [2] [0]
+6
+>>> print L5 [2] [2]
+8
+>>> L1 [1:2]
+[2]
+```
+`list[n:m]` will return the part of the list from n th element to m th element, including the first element but excluding the last element. So the resultant list will have m-n elements in it. Slices are treated as boundaries, and the result will contain all the elements between boundaries.
+
+#### Its Syntax is:
+
+```py
+seq = L [start: stop: step]
+```
+
+Where `start`, `stop` & `step` - all three are optional. If you omit first index, slice starts from `0` and omitting of stop will take it to `end`. Default value of step is 1.
+
+Example
+
+For list L2 containing [“Delhi”, “Chennai”, “Mumbai”]
+
+```py
+>>> L2 [0:2]
+[“Delhi”, “Chennai”]
+
+>>> list = [10, 20, 30, 40, 50, 60]
+>>> list [::2] # produce a list with every alternate element
+[10, 30, 50]
+
+>>> list [4:] # will produce a list containing all the elements from 5 th position till end
+[50, 60]
+
+>>> list [:3]
+[10, 20, 30]
+>>> list [:]
+[10, 20, 30, 40, 50, 60]
+
+>>> list [-1] # „-1‟ refers to last elements of list
+60
+```
+
+> **Note**: Since lists are mutable, it is often recommended to make a copy of it before performing operation that change a list.
+
+## Traversing a List
+
+Let us visit each element (traverse the list) of the list to display them on screen. This can be done in many ways:
+
+- `while` loop
+
+```py
+i = 0
+while i < len [L1]:
+    print L1 [i],
+i + = 1
+```
+
+will produce following output
+
+```
+1 2 5 4
+```
+- `for` loop
+
+```py
+for i in L1:
+    print i,
+```
+
+or
+
+```py
+for i in range ( len (L1)):
+    print L1 [i],
+```
+`range()` function is used to generate, indices from 0 to len -1; with each iteration i gets the index of next element and values of list are printed.
+
+> Note: for loop in empty list is never executed
+
+
+
+
 
 
 
