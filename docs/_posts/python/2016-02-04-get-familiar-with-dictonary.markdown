@@ -134,13 +134,131 @@ Note that as of Python 3.3, a random hash seed is used as well, making hash coll
 Python 2.7 and newer also provides an [OrderedDict class](https://docs.python.org/2/library/collections.html#collections.OrderedDict), a subclass of dict that adds an additional data structure to record key order. At the price of some speed and extra memory, this class remembers in what order you inserted keys; listing keys, values or items will then do so in that order. It uses a doubly-linked list stored in an additional dictionary to keep the order up-to-date efficiently.
 
 
+## Creation, initializing and accessing the elements in a Dictionary
 
 
+The function `dict()` is used to create a new dictionary with no items. This function is called `built-in` function. We can also create dictionary using `{}`.
+
+```py
+>>> D=dict()
+>>> print D
+{}
+```
+
+`{}` represents empty string. To add an item to the dictionary (empty string), we can use square brackets for accessing and initializing dictionary values.
+
+Example:
+
+```py
+>>> H=dict()
+>>> H["one"]="keyboard"
+>>> H["two"]="Mouse"
+>>> H["three"]="printer"
+>>> H["Four"]="scanner"
+>>> print H
+{'Four': 'scanner', 'three': 'printer', 'two': 'Mouse', 'one': 'keyboard'}
+```
 
 
+### Traversing a dictionary
+
+This can be done by using `for-loop`.
+
+Example:
+
+code
+
+```py
+H={'Four': 'scanner', 'three': 'printer', 'two': 'Mouse', 'one': 'keyboard'}
+for i in H:
+print i,":", H[i]," ",
+```
+
+output:
+
+```py
+Four: scanner
+one: keyboard
+three: printer
+two: Mouse
+```
+
+As said previously, the order of items in a dictionary is unpredictable.
+
+### Creating, initializing values during run time (Dynamic allocation)
+
+We can create a dictionary during run time also by using dict () function. This way of creation is called dynamic allocation. Because, during the run time, memory keys and values are added to the dictionary.
+
+{: .info .note}
+**Write a program to input total number of sections and class teachers’ name in 11 th class and display all information on the output screen.**
+
+```py
+classxi=dict()
+n=input("Enter total number of section in xi class")
+i=1
+
+while i<=n:
+	a=raw_input("enter section")
+	b=raw_input ("enter class teacher name")
+	classxi[a]=b
+	i=i+1
 
 
+print "Class","\t","Section","\t","teacher name"
+for i in classxi:
+	print "XI","\t",i,"\t",classxi[i]
+```
 
+
+### Appending values to the dictionary
+
+We can add new elements to the existing dictionary, extend it with single pair of values or join two dictionaries into one. If we want to add only one element to the dictionary, then we should use the following method.
+
+**Syntax:**
+
+```py
+dictionary_name [key]=value
+```
+Example:
+
+```py
+>>> a={"mon":"monday","tue":"tuesday","wed":"wednesday"}
+>>> a["thu"]="thursday"
+>>> print a
+{'thu': 'thursday', 'wed': 'wednesday', 'mon': 'monday', 'tue': 'tuesday'}
+```
+
+### Merging dictionaries: An update()
+
+Two dictionaries can be merged in to one by using `update()` method. It merges the keys and values of one dictionary into another and overwrites values of the same key.
+
+**Syntax**:
+
+```py
+Dic_name1.update (dic_name2)
+```
+
+Using this `dic_name2` is added with `Dic_name1`.
+
+Example:
+
+```py
+>>> d1={1:10,2:20,3:30}
+>>> d2={4:40,5:50}
+>>> d1.update(d2)
+>>> print d1
+{1: 10, 2: 20, 3: 30, 4: 40, 5: 50}
+```
+
+Example 2:
+
+```py
+{1: 10, 2: 30, 3: 30, 5: 40, 6: 60} # k>>> d1={1:10,2:20,3:30} # key 2 value is 20
+>>> d2={2:30,5:40,6:60} #key 2 value is 30
+>>> d1.update(d2)
+>>> print d1
+# key 2 value is replaced with 30 in d1
+```
 
 
 
