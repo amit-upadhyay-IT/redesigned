@@ -420,5 +420,24 @@ Example:
 [('wed', 'Wednesday'), ('sun', 'Sunday'), ('thu', 'Thursday'), ('tue', 'Tuesday'), ('mon', 'Monday'), ('fri', 'Friday'), ('sat', 'Saturday')]
 ```
 
+### Get  key by value in dictionary
+
+Basically we need to separate the dictionary's value in a list, find the position of the value you have and get the key at the position.
+
+Example:
+
+```py
+>>> myDict
+{'age': 20, 'college': 'Army Institute of Technology', 'name': 'amit'}
+>>> myDict.keys()[myDict.values().index('amit')]
+'name'
+>>> 
+```
+
+> **NOTE**: From python3, we need to cast the dic.keys() and dic.values() in list() explicitly.
+
+With the help of `index()` function we get the index of particular item passed as argument.
+
+To find the value of a particular key, you can also iterate over keys (but that's not a good idea).
 
 Thank you 👏
