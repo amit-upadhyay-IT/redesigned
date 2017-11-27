@@ -260,17 +260,165 @@ Example 2:
 # key 2 value is replaced with 30 in d1
 ```
 
+### Removing an item from dictionary
 
+We can remove item from the existing dictionary by using `del` key word.
 
+**syntax**:
 
+```py
+del dicname[key]
+```
 
+Example:
 
+```py
+>>> A={"mon":"monday","tue":"tuesday","wed":"wednesday","thu":"thursday"}
+>>> del A["tue"]
+>>> print A
+{'thu': 'thursday', 'wed': 'wednesday', 'mon': 'monday'}
+```
 
+### Dictionary functions and methods
 
+#### cmp()
 
+This is used to check whether the given dictionaries are same or not. If both are same, it will return `zero`, otherwise return `1` or `-1`. If the first dictionary having more number of items, then it will return 1, otherwise return -1.
 
+**Syntax**:
 
+```py
+cmp(d1,d2) # d1and d2 are dictionary.
+returns 0 or 1 or -1
+```
 
+Example:
+
+```py
+>>> D1={'sun':'Sunday','mon':'Monday','tue':'Tuesday','wed':'Wednesday','thu':'Thursday','fri':'Friday','sat':'Saturday'}
+>>> D2={'sun':'Sunday','mon':'Monday','tue':'Tuesday','wed':'Wednesday','thu':'Thursday','fri':'Friday','sat':'Saturday'}
+>>> D3={'mon':'Monday','tue':'Tuesday','wed':'Wednesday'}
+>>> cmp(D1,D3) #both are not equal
+1
+>>> cmp(D1,D2) #both are equal
+0
+>>> cmp(D3,D1)
+-1
+```
+
+#### len()
+
+This method returns number of key-value pairs in the given dictionary.
+
+**Syntax**:
+
+```py
+len(d) # d dictionary
+```
+
+#### clear()
+
+It removes all items from the particular dictionary.
+
+Example:
+
+```py
+>>> D={'mon':'Monday','tue':'Tuesday','wed':'Wednesday'}
+>>> print D
+{'wed': 'Wednesday', 'mon': 'Monday', 'tue': 'Tuesday'}
+>>> D.clear()
+>>> print D
+{}
+```
+#### get(k, x)
+
+There are two arguments `(k, x)` passed in `get()` method. The first argument is `key value`, while the second argument is corresponding `value`. If a dictionary has a given `key (k)`, which is equal to given `value (x)`, it returns the corresponding `value (x)` of given `key (k)`. However, if the dictionary has no `key-value` pair for given `key (k)`, this method returns the default values same as given value `(x)`. The second argument is optional. If omitted and the dictionary has no key equal to the given key value, then it returns `None`.
+
+**syntax**:
+
+```py
+D.get (k, x) # D dictionary, k key and x value
+```
+
+Example:
+
+```py
+>>> D={'sun':'Sunday','mon':'Monday','tue':'Tuesday','wed':'Wednesday','thu':'Thursday','fri':'Friday','sat':'Saturday'}
+>>> D.get('wed',"wednesday") # corresponding value wed
+'Wednesday'
+>>> D.get("fri","monday") # default value of fri
+'Friday'
+>>> D.get("mon") # default value of mon
+'Monday'
+>>> D.get("ttu") # None
+>>>
+```
+
+#### has_key()
+
+This function returns `True`, if dictionary has a key, otherwise it returns `False`.
+
+**syntax**:
+
+```py
+D.has_key(k) #D dictionary and k key
+```
+
+#### items()
+
+It returns the content of dictionary as a list of key and value. The key and value pair will be in the form of a tuple, which is not in any particular order.
+
+**syntax**:
+
+```py
+D.items() # D dictionary
+```
+
+Example:
+
+```py
+>>> D={'sun':'Sunday','mon':'Monday','tue':'Tuesday','wed':'Wednesday','thu':'Thursday','fri':'Friday','sat':'Saturday'}
+>>> D.items()
+[('wed', 'Wednesday'), ('sun', 'Sunday'), ('thu', 'Thursday'), ('tue', 'Tuesday'), ('mon','Monday'), ('fri', 'Friday'), ('sat', 'Saturday')]
+```
+> **Note**: `items()` is different from `print` command because, in print command dictionary values are written in `{}`
+
+#### keys()
+
+It returns a list of the key values in a dictionary, , which is not in any particular order.
+
+**Syntax**:
+
+```py
+D.keys( ) #D dictionary
+```
+Example:
+
+```py
+>>> D={'sun':'Sunday','mon':'Monday','tue':'Tuesday','wed':'Wednesday','thu':'Thursday','fri':'Friday','sat':'Saturday'}
+>>> D.keys()
+['wed', 'sun', 'thu', 'tue', 'mon', 'fri', 'sat']
+>>>
+```
+
+#### values()
+
+It returns a list of values from `key-value` pairs in a dictionary, which is not in any particular order. However, if we call both the items() and values() method without changing the dictionary's contents between these two (items() and values()), Python guarantees that the order of the two results will be the same.
+
+**syntax**:
+
+```py
+D.values() # D values
+```
+Example:
+
+```py
+>>> D={'sun':'Sunday','mon':'Monday','tue':'Tuesday','wed':'Wednesday','thu':'Thursday','fri':'Friday','sat':'Saturday'}
+>>> D.values()
+['Wednesday', 'Sunday', 'Thursday', 'Tuesday', 'Monday', 'Friday', 'Saturday']
+>>> D.items()
+[('wed', 'Wednesday'), ('sun', 'Sunday'), ('thu', 'Thursday'), ('tue', 'Tuesday'), ('mon', 'Monday'), ('fri', 'Friday'), ('sat', 'Saturday')]
+```
 
 
 Thank you 👏
