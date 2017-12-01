@@ -219,3 +219,31 @@ number appears after the smaller is %d\n", max_diff);
 }
 ```
 
+
+
+
+<div class="note unreleased">
+  <h5>Approach 4</h5>
+  <p>
+    You should probably think of this solution after you think of 1st solution on this post, as in this approach I am solving problem using auxilary array.
+  </p>
+</div>
+
+If you analyse the first approach, you would find out that most of the time was going in search for the minimum element to the left of the current element in loop iteration, so for this purpose you can maintain an auxilary array which will store the minimum element by that position.
+
+For example,
+```py
+arr = [4, 3, 10, 2, 9, 1, 6]
+```
+
+we can have the minimumArray as:
+
+```py
+mini = [4, 3, 3, 2, 2, 1, 1]
+```
+
+### Code in python:
+
+```py
+
+```
