@@ -92,8 +92,29 @@ class mobile:
 In the above example `pass` is a keyword. Giving pass in the class definition means that the class doesn't define any methods or attributes. But since there needs to be something in the definition, so you use pass. It's a statement that does nothing.
 
 
+### Constructors in Python (Using __init__)
 
+In python, the built in method `__init__` is a sort of `constructor`. Notice the double underscores both in the beginning and end of `init`. In fact it is the first method defined for the class and is the first piece of code executed in a newly created instance of the class. But still it should also be remembered that the object has already been constructed by the time `__init__` is called, and you already have a valid reference to the new instance of the `class` through the first argument, `self` of the `__init__` method.
 
+**Consider the following example:**
+
+```py
+class Initialize:
+	int var
+	def __init__(self, var=10): #double underscore before and after init
+		Initialize.var=var
+	def display():
+	print var
+```
+
+`__init__` method can take any number of arguments, and just like functions, the arguments can be defined with default values, making them optional to the caller. Initial values for attributes can be passed as arguments and associated to attributes. A good practice is to assign them default values, even `None`. In this case, `var` has a default value of `10`. After the class definition, `object.__init__(self[, ...])` is called when the instance is created. The arguments are those passed to the class constructor expression. This means the statements given below will give the output 20.
+
+```py
+P = Initialize(20)
+P.display()
+```
+
+Also note that if no argument was passed while creating the object, then the `__init__` would have taken the default value of var and the output would have been `10`.
 
 
 Thank you 👏
