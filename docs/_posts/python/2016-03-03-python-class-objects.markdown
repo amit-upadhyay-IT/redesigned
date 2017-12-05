@@ -228,10 +228,48 @@ class Health_profile:
 B+
 ```
 
+### Instances attributes
 
+As we have learnt, a class may define attributes for its instances. These are called instance attributes and they belong to each instance/object of a class. For example, for the class Health_profile given above, let H1 be an instance. So, the attributes of H1, such as the weight, are directly available through the dot operator:
 
+```py
+>>>H1.weight
+89
+```
 
+The dictionary for the instance attributes is also accessible by its `__dict__` variable about which you will learn in the next section. To list the attributes of an instance, we have two functions:
 
+i) `vars()` : This function displays the attributes of the instance in the form of a dictionary. Consider the following example:
 
+```py
+>>>vars(H1)
+{'weight': '89', 'blood group': 'B+'}
+```
+
+ii) `dir()`: This function lists more attributes than vars()because it is not limited to the dictionary of instance. It also displays the class attributes.
+
+For example
+```py
+>>>dir(H1)
+['__doc__', '__init__', '__module__', 'weight', 'blood_group',]
+```
+
+You can add, remove or modify attributes to an instance that were not defined by the class, such as the height in the following:
+
+```py
+>>> H1.height = 197 # adds 'height' as attribute
+>>>  vars(H1)
+{'weight': '89', 'blood group': 'B+',height='197'}
+>>>H1. height=180 #modifies the value of height
+>>> vars(H1)
+{'weight': '89', 'blood group': 'B+',height='180'}
+>>> del H1.height #deleted the attribute height
+>>> vars(H1)
+{'weight': '89', 'blood group'}
+```
+
+Here it should always be remembered that this feature of adding and deleting attributes should be used
+carefully, since by doing this, you start to have instances that have different behaviour than that is specified
+in the class.
 
 Thank you 👏
