@@ -203,6 +203,35 @@ c) If no class attribute is found, the object's `__getattr__()` method is called
 Attribute assignments and deletions update the instance's dictionary, never a class's dictionary. If the class has a `__setattr__()` or `__delattr__()` method, this is called instead of updating the instance dictionary directly. You will learn about these methods later in this chapter.
 
 
+### Class Atttributes v/s Instance Attributes
+
+Attributes can be classified into - Class Attributes and Instance attributes.
+
+**Class Attributes**
+
+These belong to the class itself. These attributes will be shared by all the instances. Such attributes are defined in the class body part, usually at the top, for legibility. Consider the following example:
+
+
+Example:
+
+```py
+class Health_profile:
+		...
+	weight = 89
+	blood_group= 'B+'
+	...
+
+# To access this attribute, you use the dot notation:
+>>> Health_profile.weight
+89
+>>> Health_profile.blood_group
+B+
+```
+
+
+
+
+
 
 
 Thank you 👏
