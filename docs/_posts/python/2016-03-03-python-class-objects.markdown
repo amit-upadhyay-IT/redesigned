@@ -159,4 +159,30 @@ the output is
 ```
 1000 Samsung
 ```
+
+### Class instances (Objects)
+
+In fact after the class definition is made, a class instance is created automatically once the definition is left normally i.e. the indentation of statements is removed and the class object is called. All the instances created with a given class will have the same structure and behaviour. They will only differ regarding their state, i.e regarding the value of their attributes.
+
+Classes and instances have their own namespaces, that is accessible with the dot ('.') operator. These namespaces are implemented by dictionaries, one for each instance, and one for the class. A class object is bound to the class name given in the class definition header. A class object can be used in two ways - by Instantiation and attribute references.
+
+**1. Instantiation: Creating instance objects**
+
+To create instances of a class, you call the class using class name and pass in whatever arguments its
+`__init__` method accepts.
+```py
+Test = T(1,100)
+```
+In the above example `T` is the instance of class Test.
+
+**2. Attribute Reference: Accessing attributes of a class**
+
+```py
+Object Name. Attribute Name
+```
+
+As discussed before all the names that were given during the class definition and hence were in the
+class's namespace are valid attribute names.
+
+
 Thank you 👏
