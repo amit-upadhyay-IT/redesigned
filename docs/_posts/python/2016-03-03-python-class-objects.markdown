@@ -268,8 +268,68 @@ You can add, remove or modify attributes to an instance that were not defined by
 {'weight': '89', 'blood group'}
 ```
 
-Here it should always be remembered that this feature of adding and deleting attributes should be used
-carefully, since by doing this, you start to have instances that have different behaviour than that is specified
-in the class.
+Here it should always be remembered that this feature of adding and deleting attributes should be used carefully, since by doing this, you start to have instances that have different behaviour than that is specified in the class.
+
+### Adding methods dynamically
+
+As you can add, modify and delete the attributes of a class dynamically i.e. at run time, similarly, you can add methods dynamically to an object or class. Consider the code given below:
+
+```
+pyclass Health_profile:
+		...
+		weight = 89
+		blood_group= 'B+'
+
+	def play():
+		print " Come on lets play"
+
+	H=Health_profile()
+	H.play=play()
+	H.play()
+```
+
+In the above example, play is just a function which does not receive `self`. There is no way by which `H` can know that play is a method. If you need `self`, you have to create a method and then bind it to the object. For this you have to import `MethodType` from `types` module as shown in the example below:
+
+
+```py
+from types import MethodType
+class Health_profile(object):
+		weight = 89
+		blood_group= 'B+'
+
+	def __init__(self,name):
+		self.name=name
+
+	def play():
+		print " Come on lets play", self.name
+
+	H=Health_profile("Shalini")
+	H.play=MethodType(play,H)
+	H.play()
+```
+
+In the above code, the built in function `MethodType` from the `types` module takes two arguments - the `name` of the function which has to be bound dynamically and the `instance` with which it has to bind the function. In the above example the `play` method will be bound only with the instance, `H`. No other instances of the class `Health_profile` will have `play` method. If we want the other instances also to have play method, then we have to add the method to the class and for that we make use of `self` as shown in the example below:
+
+```py
+class Health_profile(object):
+		weight = 89
+		blood_group= 'B+'
+
+	def __init__(self,name):
+		self.name=name
+
+	def play(self):
+		print " Come on lets play", self.name
+
+	Health_profile.play=play()
+	H1=Health_profile("Shalini")
+	H1.play()
+	H2=Health_profile("Ritu")
+	H2.play()
+```
+
+In the above example, note that no method is created with `types.MethodType`. This is because all functions in the body of the class will become methods and receive self unless you make it a `static` method.
+
+
 
 Thank you 👏
