@@ -184,5 +184,25 @@ Object Name. Attribute Name
 As discussed before all the names that were given during the class definition and hence were in the
 class's namespace are valid attribute names.
 
+Example:
+
+```py
+test.display()
+unit_test.display()
+print "Marks =", test. marks
+```
+
+**The search for the referenced attribute is done in the following sequence:**
+
+a) A class instance has a namespace implemented as a dictionary which is the first place in which attribute references are searched.
+
+b) When an attribute is not found there, and the instance's class has an attribute by that name, the search continues with the class attributes.
+
+c) If no class attribute is found, the object's `__getattr__()` method is called to satisfy the lookup. You will study about this method later in the chapter.
+
+Attribute assignments and deletions update the instance's dictionary, never a class's dictionary. If the class has a `__setattr__()` or `__delattr__()` method, this is called instead of updating the instance dictionary directly. You will learn about these methods later in this chapter.
+
+
+
 
 Thank you 👏
