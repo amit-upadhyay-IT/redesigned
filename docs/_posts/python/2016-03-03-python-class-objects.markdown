@@ -523,8 +523,4 @@ Now give the following command on the Python interpreter:
 When you give the command to `print T`, Python calls `str(T)` to get the string representation of `T`. If the class of `T` has a `__str__` method, `str(T)` becomes a call to `T.__str__()`. This returns the string to print.
 
 
-
-
-
-
 Thank you 👏
