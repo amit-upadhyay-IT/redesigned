@@ -43,14 +43,16 @@ public class YourCountryCodesAdapter extends AbstractCountryCodesAdapter{
     }
 }
 ```
-# [Example Pic]
 
-![N|Solid](https://i.stack.imgur.com/zu3w7.png)
+<br>
+#  Example Pic
+
+![](https://i.stack.imgur.com/zu3w7.png?raw=true)
 
 Use
-compile 'com.googlecode.libphonenumber:libphonenumber:8.0.1'
+compile `'com.googlecode.libphonenumber:libphonenumber:8.0.1'`
 depencency.
-This makes task easy and provide accurate result because its by google
-https://github.com/googlei18n/libphonenumber
+
+This makes task easy and provide accurate result because its by google `https://github.com/googlei18n/libphonenumber`
 
 
