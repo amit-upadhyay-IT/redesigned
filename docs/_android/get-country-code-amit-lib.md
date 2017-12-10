@@ -5,7 +5,9 @@ permalink: /android/get-country-code-amit-lib/
 ---
 
 {: .info .note}
-**GetCountryCode**<br>An open source library developed for getting the country code of users android mobile.<br><br>-Amit Upadhyay
+**GetCountryCode**<br>An open source library developed for getting the country code of users android mobile.
+
+[See on GitHub](https://github.com/amit-upadhyay-IT/GetCountryCode)
 
 ### Change dependencies library
 - countrycode.
@@ -43,9 +45,8 @@ public class YourCountryCodesAdapter extends AbstractCountryCodesAdapter{
     }
 }
 ```
-
 <br>
-#  Example Pic
+#  [Example Pic](https://i.stack.imgur.com/zu3w7.png?raw=true)
 
 ![](https://i.stack.imgur.com/zu3w7.png?raw=true)
 
