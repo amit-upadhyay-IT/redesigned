@@ -23,6 +23,5 @@ test/dest
 tmp/*
 
 BitManip/
-Heaps/
 LinkedList/
 DisjointSet/
