@@ -137,9 +137,42 @@ then:
 
 ## Process of building heap
 
-i.e. given an array of elements, how would you build a heap out of array.
+**Given an array of elements, how would you build a heap out of array?**
 
-`pass`
+Let's make a max-heap.
+
+- One approach for making a max-heap is to sort the array in descending order.
+- Time taken would be O(n*log2(n)), but I would want to perform the task of construction in less time.
+
+Consider the below example which is a almost complete binary tree and try to construct a max-heap
+
+```
+        1
+       / \
+      2   3
+     / \
+    4   5
+```
+
+In a almost complete binary tree:
+
+- The starting index of the leaf is : `floor(n/2) + 1`
+- The ending index of leaf is : `n`
+
+So in the above tree we have leafs from index 3 to index 5 (where indexing starts from 1)
+
+**Why are we interested in finding out the leaf?**
+
+Every leaf is nothing but a tree with one node and every tree with one node is already a heap (either min-heap or max-heap), so we can say that the building blocks of the heap are the leaf in the tree.
+
+We will use the building blocks (i.e. leaf) to form the heap.
+
+First let's look at defination of Heapify: **The process of converting a binary tree into a Heap data structure.**
+
+So we can say that one way to construct a heap is **going to each node from the end and then converting the node into a heap (i.e. Heapify).** But, note that the leafs are already heap, so we need to start this process of Heapify from the first non-leaf node i.e. from `floor(n/2)` to `1`.
+
+Below you will study more about Heapify.
+
 
 ## Algorithm to heapify
 
@@ -147,39 +180,39 @@ Heapify is an important step used in the construction of heap (min-heap or max-h
 
 Given that the left and right child of a node `'n'` in a binary tree are heap (min-heap or max-heap) then heapify is the process of converting the node `'n'` into a heap.
 
-**Max-heapify in C**
+**Max-heapify**
 
-```c
-struct Heap
-{
-    int heapSize;
-    int *arr;
-};
+```py
+# heapify the MaxHeap about the index passed as the argument
+def max_heapify(self, i):
+    # step1: get the largest among left child, right child and root
+    # step2: is largest is not the root, then swap and heapify for largest
 
+    # get left index
+    left = 2 * i
+    # get right index
+    right = 2 * i + 1
 
-void max_heapify(struct Heap *h, int i)
-{
-    int l = 2*i;
-    int r = 2*i + 1;
-    int largest = -1;
+    # init the largest
+    largest = -1
 
-    if (l <= h->heapSize && h->arr[l] > h->arr[i])
-        largest = l;
-    else
-        largest = i;
+    # check the boundary for left also check if its greater or not
+    if left <= self.heap_size and self.heap_list[left] > self.heap_list[i]:
+        largest = left
+    else:
+        largest = i
 
-    if (r <= h->heapSize && h->arr[r] > h->arr[largest])
-        largest = r;
+    # check the boundary for right also see if its greater than prev largest
+    if right <= self.heap_size and \
+            self.heap_list[right] > self.heap_list[largest]:
+        largest = right
 
-    if (largest != i) // need for heapify
-    {
-        int t = h->arr[i];
-        h->arr[i] = h->arr[largest];
-        h->arr[largest] = t;
-
-        max_heapify(h, largest);
-    }
-}
+    # step2: if root is not largest then you need to swap
+    if largest != i:
+        self.heap_li[largest], self.heap_li[i] = \
+            self.heap_list[i], self.heap_list[largest]
+        # there may be disordering in the child somewhere, so check them
+        self.max_heapify(largest)
 ```
 
 **Time Complexity Analysis**:
@@ -205,49 +238,52 @@ Space complexity = O(log2(n))
 {: .info .note}
 **Why is 'n' in the time and space complexity above?**<br>Remember we pass two arguments in the heapify function, the second argument is the index of the node about which we are going to heapify the tree. So `n` represents the number of nodes in the subtree for which `i` (the second argument) is the root.
 
-**Min-heapify in Python**
-
-For python lovers, I wrote the below code in python. BTW, the function below has slight changes from the above function (max-heapify).
+**Min-heapify**
 
 ```py
-class MinHeap:
+# heapify the MinHeap on the index passed as the arg
+# the indexing here is starts from 1
+def min_heapify(self, i):
+    # step1: get the smallest among the left child, right child and root
+    # step2: if root is not the smallest among three then swap appropriately
 
-    heapSize = 0
-    heapList = list()
+    # get left index
+    left = i * 2
+    # get right index
+    right = i * 2 + 1
 
-    def __init__(self, heapSize=None, heapList=None):
-        self.heapSize = heapSize
-        self.heapList = heapList
+    # init the smallest var
+    smallest = -1
 
-    def min_heapify(self, index):
-        left = index*2
-        right = index*2 + 1
+    # check if left is greater than root, also check the boundary of left
+    if left <= self.heap_size and self.heap_list[left] < self.heap_list[i]:
+        smallest = left
+    else:
+        smallest = i
 
-        smallest = -1
+    # check if right is smallerst or not, also check the boundary of right
+    if right <= self.heap_size and self.heap_list[right] < \
+            self.heap_list[smallest]:
+        smallest = right
 
-        if left <= self.heapSize and self.heapList[left] < self.heapList[index]:
-            smallest = left
-        else:
-            smallest = index
-
-        if right <= self.heapSize and self.heapList[right] < self.heapList[smallest]:
-            smallest = right
-
-        if smallest != index:
-            self.heapList[smallest], self.heapList[index] = self.heapList[index], self.heapList[smallest]
-            self.min_heapify(smallest)
+    # step 2: if smallest is not the one at root, then you need to swap
+    if smallest != i:
+        self.heap_list[smallest], self.heap_list[i] = \
+            self.heap_list[i], self.heap_list[smallest]
+        # after this swap there may be disordering somewhere in child
+        # so again calling heapify over the smallest index
+        self.min_heapify(smallest)
 ```
 
 ## Algorithm to build max-heap
 
-```c
-// the heap array is pre-initialized with element value and size in main-function.
-void buildMaxHeap(struct Heap *h)
-{
-    int i;
-    for (i = h->heapSize/2; i >= 1; --i)
-        max_heapify(h, i);
-}
+```py
+# constructs the MaxHeap
+def build_maxheap(self):
+    # start from the last non-leaf and go upto 1 and at each step
+    # heapify
+    for i in xrange(self.heap_size/2, 0, -1):
+        self.max_heapify(i)
 ```
 
 We need to traverse through every non-leaf one by one, while traversing make sure that you start from the largest non-leaf index in the heap list.
