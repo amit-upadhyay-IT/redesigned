@@ -86,7 +86,9 @@ def power(x, y):
         # return x * power(x, y-1)
 ```
 
-Well, this recursive function is slower. Its time complexity is O(n). Let's try to see the call stack made interms of binary tree.
+Well, this recursive function is slower. Its **time complexity is O(n)**.
+
+Let's try to see the call stack made interms of a tree.
 
 ```
               6^7	-----------> returns 6*46656 to main function
@@ -105,3 +107,49 @@ Well, this recursive function is slower. Its time complexity is O(n). Let's try 
   /
 6^0 			-----------> returns 1 to the parent node
 ```
+
+We can optimize this above program more.
+
+Note that to calculate `6^4`, you don't need to calculate all `6^3`, `6^2`, `6^1` and `6^0`. You can just calculate `6^2` and multiply it with itself i.e. `6^2`.
+
+Here is recursive cases will get split into two parts:
+
+- When the exponent is odd.
+- When the exponent is even.
+
+In case of odd exponent we will try to make it even, as any odd number is nothing but `1 + some even number`.
+
+Example code:
+
+```py
+def power(x, y):
+    if y == 0:
+        return 1
+    elif y & 1:  # i.e. odd
+        return x * power(x, y-1)
+    else:  # even power
+        return power(x, y/2) * power(x, y/2)
+```
+
+The time complexity will still be the same i.e. **O(n)** because we are still computing the same number of opreations, but the recursion stack space will get reduces to **O(log2(n))**. We can reduct the time complexity to **O(log2(n))** by computing the value just once and storing the computed value in the same stack.
+
+Let's look at the recursion stack using a binary tree (as two branches can be formed).
+
+
+```
+                      6^21
+                      /
+                     6^20
+                  /       \
+               6^10       6^10
+              /    \      /  \
+            6^5    6^5   6^5  6^5 
+            / \     /\  /\    /\
+          6^4 6^4  6^4 ............
+          /  \ 
+        6^2  6^2 ...........
+        / \
+      6^1  6^1 ...........
+```
+
+The more optimized code with time complexity **O(log2(n))**:
