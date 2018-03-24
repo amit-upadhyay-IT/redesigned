@@ -1,7 +1,7 @@
 ---
 layout: tutorials
 permalink: /tutorials/recursion-introduction/
-title: Recursions
+title: All about Recursions
 ---
 
 {: .info .note}
@@ -147,9 +147,23 @@ Let's look at the recursion stack using a binary tree (as two branches can be fo
             / \     /\  /\    /\
           6^4 6^4  6^4 ............
           /  \ 
-        6^2  6^2 ...........
+        6^2  6^2 ............
         / \
-      6^1  6^1 ...........
+      6^1  6^1 ............
 ```
 
 The more optimized code with time complexity **O(log2(n))**:
+
+```py
+# time = O(log2(n))
+def power_optimized(x, y):
+    if y == 0:
+        return 1
+    p = power_optimized(x, y/2)
+    if y & 1:  # i.e. odd
+        return x * p * p
+    else:
+        return p * p
+```
+
+Here the value gets computed only once and it can be used again in the same stack at the time of backtracking. So time complexity is **O(log2(n))**.
