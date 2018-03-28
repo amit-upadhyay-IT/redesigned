@@ -377,6 +377,7 @@ So, **T.C = O(10^n)**
 
 - Space complexity = `O(n)` because there are `n` level deep recursion being made.
 
+
 ## Example 3: Dice rolls
 
 {: .info .note}
@@ -395,3 +396,48 @@ Output:
 ```
 
 Here we want to generate all possible sequence of values.
+
+```cpp
+for (each possible first die value):
+    for (each possible second die value):
+        for (each possible third die value):
+	    ----
+		print
+```
+
+This is like **depth-first-search**.
+
+- You may think that for loops can be used to solve this problem, but you don't know how many for loops are needed.
+
+Also, there are large search space so exploring them is difficult using for loops.
+
+Example of search space using tree:
+
+```
+                    -
+            /   /  / \  \   \
+           1   2  3   4  5   6
+        / / /\ \ \
+       1,2,3,4,5,6.......... each node is going to have 6 child.
+```
+
+This is a huge search space. This is also a type of exhaustive search problem. So you can first make the recursion tree and then code it.
+
+Here, I will use `prefix` to store the task done by previous calls and as soon as the counter gets to `0` from `n` I will print the `prefix`.
+
+Example code:
+
+```py
+def dice_roll(n, prefix):
+    # base case, i.e. n goes down to 0
+    if n == 0:
+        print prefix.rstrip(',')  # for stripping out the righmost ,
+    else:
+        # call the same function 6 times with each possible value of prefix
+        for i in range(1, 7):
+            dice_roll(n-1, prefix + str(i) + ',')
+
+
+if __name__ == '__main__':
+    dice_roll(2, '')
+```
