@@ -240,4 +240,158 @@ print_binary( 3 ,  )
 111
 ```
 
+In the recursion call stack `print_binary( 1 , 00 )` mean that `1` number of digit is left to be accounted for. If you are left with `print_binary( 0 , 000 )`, it means that the `prefix` contains all the necessary digits and there are `0` of them left, so this is why I consider `n == 0` as the base case.
 
+- Time complexity = `O(2^n)`, where `n` is the number of digits in binary number.
+
+You can say this time complexity just by watching the above recrusion tree as there are `2^n` possible output and to get to each output you need `O(n)` time, i.e. overall time complexity would be `O(n*2^n)` or you can ignore `n` and say time complexity = `O(2^n)`.
+
+Still, I want to write a recurrence relation for the above function and solve it and get the time complexity.
+
+Recurrence relation:
+
+```
+T(n) = 1; n is 0
+     = T(n-1) + T(n-1); otherwise
+```
+
+or
+
+```
+T(n) = 1; n is 0
+     = 2*T(n-1); otherwise
+```
+
+Now you can easily solve this recurrence relation (or use Masters theorem for the fast solution). You will get the time complexity as **O(2^n)**.
+
+Solving the recurrence relation:
+
+```
+T(n) = 2T(n-1)
+     = 2(2T(n-1-1) = 4T(n-2)
+     = 4(2T(n-3)
+     = 8T(n-3)
+     = 2^k T(n-k), for some integer `k` ----> equation 1
+```
+
+Now we are given the base case where n is 0, so let,
+
+```
+n-k = 0 , i.e. k = n;
+```
+
+Put k = n in equation 1,
+
+```
+T(n) = 2^n * T(n-n)
+     = 2^n * T(0)
+     = 2^n * 1; // as T(0) is 1
+     = 2^n
+```
+
+So, **T.C = O(2^n)**
+
+
+- Space complexity = `O(n)` because there are `n` level deep recursion being made.
+
+
+## Example 2: Print Decimal
+
+{: .info .note}
+Write a recursive function that accepts an integer number of digits and prints all binary number that have exactly that many digits.
+
+This is similar to the above problem except the fact that here we need to form `10` branches in the recursion tree insted of `2`.
+
+Example code:
+
+```py
+def indent(n):
+    for i in xrange(n):
+        print '    ',
+
+
+def print_decimal(n, prefix):
+    # indent(len(prefix))  # indentation purpose i.e. for better understanding
+    # printing the call stack
+    # print 'print_decimal(', n, ',', prefix, ')'
+    # base case, when n becomes 0 i.e. prefix will have length = actual n
+    if n == 0:
+        print prefix
+    else:
+        # form the ten branches of the tree, i.e one for 0 and other for 1
+        for i in range(10):
+            print_decimal(n-1, prefix + str(i))
+
+
+if __name__ == '__main__':
+    print_decimal(5, '')
+```
+
+- Time complexity = `O(10^n)`, where `n` is the number of digits in binary number.
+
+You can say this time complexity just by watching the above recrusion tree as there are `10^n` possible output and to get to each output you need `O(n)` time, i.e. overall time complexity would be `O(n*10^n)` or you can ignore `n` and say time complexity = `O(10^n)`.
+
+Recurrence relation:
+
+```
+T(n) = 1; n is 0
+     = T(n-1) + T(n-1) + T(n-1) + T(n-1) ..... + T(n-1).... 10 times ; otherwise
+```
+
+or
+
+```
+T(n) = 1; n is 0
+     = 10*T(n-1); otherwise
+```
+
+Now you can easily solve this recurrence relation (or use Masters theorem for the fast solution). You will get the time complexity as **O(2^n)**.
+
+Solving the recurrence relation:
+
+```
+T(n) = 10T(n-1)
+     = 10(10T(n-1-1) = 100T(n-2)
+     = 100(10T(n-3)
+     = 1000T(n-3)
+     = 10^k T(n-k), for some integer `k` ----> equation 1
+```
+
+Now we are given the base case where n is 0, so let,
+
+```
+n-k = 0 , i.e. k = n;
+```
+
+Put k = n in equation 1,
+
+```
+T(n) = 10^n * T(n-n)
+     = 10^n * T(0)
+     = 10^n * 1; // as T(0) is 1
+     = 10^n
+```
+
+So, **T.C = O(10^n)**
+
+
+- Space complexity = `O(n)` because there are `n` level deep recursion being made.
+
+## Example 3: Dice rolls
+
+{: .info .note}
+Write a recursive function that accepts an integer representing a number of 6-sided dice to roll, and output all the possible combinations of values that could appear on the dice.
+
+Example:
+
+Input = 2
+
+Output:
+
+```
+[1, 1] [1, 2] [1, 3] [1, 4] [1, 5] [1, 6] [2, 1] [2, 2] [2, 3] [2, 4] [2, 5] [2, 6]
+[3, 1] [3, 2] [3, 3] [3, 4] [3, 5] [3, 6] [4, 1] [4, 2] [4, 3] [4, 4] [4, 5] [4, 6]
+[5, 1] [5, 2] [5, 3] [5, 4] [5, 5] [5, 6] [6, 1] [6, 2] [6, 3] [6, 4] [6, 5] [6, 6]
+```
+
+Here we want to generate all possible sequence of values.
