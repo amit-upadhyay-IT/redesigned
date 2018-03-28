@@ -327,7 +327,7 @@ if __name__ == '__main__':
     print_decimal(5, '')
 ```
 
-- Time complexity = `O(10^n)`, where `n` is the number of digits in binary number.
+- Time complexity = `O(10^n)`, where `n` is the number of digits in decimal number.
 
 You can say this time complexity just by watching the above recrusion tree as there are `10^n` possible output and to get to each output you need `O(n)` time, i.e. overall time complexity would be `O(n*10^n)` or you can ignore `n` and say time complexity = `O(10^n)`.
 
@@ -441,3 +441,9 @@ def dice_roll(n, prefix):
 if __name__ == '__main__':
     dice_roll(2, '')
 ```
+
+- Time complexity = `O(6^n)`, where `n` is the number of dice rolled.
+
+You can say this by looking at the recursion tree, also, you can get t.c using recurrence relation as I have done above.
+
+- Space complexity = `O(n)` because there are `n` level deep recursion being made.
