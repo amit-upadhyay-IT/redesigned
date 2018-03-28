@@ -15,9 +15,6 @@ Famous application:- Producing all permutations of a set of values.
 
 ### General pattern:
 
-**What is prefix below?**
-
-It is some data storage entity, it can be a string or a vector and any other type which may store one of the possible output in some call stack out of many call stacks.
 
 ```yml
 Search(decisions, prefix):
@@ -28,6 +25,10 @@ Search(decisions, prefix):
       - choose C and add or append it to the prefix.
       - Search the remaining decisions that could follow C.
 ```
+
+**What is prefix above?**
+
+`prefix` is really important thing. It is some data storage entity, it can be a string or a vector and any other type which may store one of the possible output in some call stack out of many call stacks. This parameter is remembering a set of choices we have made before the current call. If the prefix has `3` characters in it that means there were `3` calls before the current call of the function and those characters of that string (or set) represent the choices that were made by those calls. And I am gonna use the `prefix` and the current number to contribute overall answer to the problem. At some point you get to the point where `prefix` is whole answer.
 
 - Often the search space consists of many decisions, each of which has several available choices. Example: When enumerating all 5-letter string, each of the 5-letter is a decision, and each of those decision has 26 possible choices.
 
@@ -170,6 +171,73 @@ Let, input = 3
 
 Now, if you see there are total `8` leaves, thus there are `8` three-digit possible binary numbers that can be formed. You can get the solution on traversing from the root to the leaf node. Now, writing code for this becomes very easy.
 
+The possiblities are:
+```
+    000
+    001
+    010
+    011
+    100
+    101
+    110
+    111
+```
+
 To get the possible solutions, you can have a counter which will take care for the number of levels reached in the tree (this variable is referred as `decision` in the above general algorithm) and you need one more storage entity which will store the previous occurrences (i.e. `0` and `1` occurrent in the path from root to leaf. Also, this is referred as `prefix` in the above proposed general algorithm).
+
+`prefix` is really important thing. This parameter is remembering a set of choices we have made before the current call. If the prefix has `2` characters in it that means there were `2` calls before the current call of the function and those characters of that string represent the choices that were made by those calls. And now you can use the `prefix` and the current number to contribute overall answer to the problem. At some point you will see that `prefix` will be the `3` digit binary number and that would be the base case.
+
+Example code:
+
+```py
+def indent(n):
+    for i in xrange(n):
+        print '    ',
+
+
+def print_binary(n, prefix):
+    indent(len(prefix))  # indentation purpose i.e. for better understanding
+    # printing the call stack
+    print 'print_binary(', n, ',', prefix, ')'
+    # base case, when n becomes 0 i.e. prefix will have length = actual n
+    if n == 0:
+        print prefix
+    else:
+        # form the two branches of the tree, i.e one for 0 and other for 1
+        print_binary(n-1, prefix + '0')
+        print_binary(n-1, prefix + '1')
+
+
+if __name__ == '__main__':
+    print_binary(3, '')
+```
+
+Let me give you a simple way to observe such recursions more deeply. You can print the recursion stack on the console and observe how the function calls are being made. Below is an example:
+
+```
+print_binary( 3 ,  )
+     print_binary( 2 , 0 )
+          print_binary( 1 , 00 )
+               print_binary( 0 , 000 )
+000
+               print_binary( 0 , 001 )
+001
+          print_binary( 1 , 01 )
+               print_binary( 0 , 010 )
+010
+               print_binary( 0 , 011 )
+011
+     print_binary( 2 , 1 )
+          print_binary( 1 , 10 )
+               print_binary( 0 , 100 )
+100
+               print_binary( 0 , 101 )
+101
+          print_binary( 1 , 11 )
+               print_binary( 0 , 110 )
+110
+               print_binary( 0 , 111 )
+111
+```
 
 
