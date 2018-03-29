@@ -106,4 +106,4 @@ if __name__ == '__main__':
     dice_sum(3, 6)
 ```
 
-But the above code is a very bad solution to the problem. Here we are exploring every possible branch. The above solution is inefficient.
+But the above code is a very bad solution to the problem. Here we are exploring every possible branch. The above solution is inefficient. In backtracking problems we might need to explore a big tree of possiblities but it's really important to limit the possible options (if possible) because if you don't constraint yourself a little bit then the code will take long execution time.
