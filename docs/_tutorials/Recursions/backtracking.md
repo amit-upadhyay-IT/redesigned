@@ -107,3 +107,7 @@ if __name__ == '__main__':
 ```
 
 But the above code is a very bad solution to the problem. Here we are exploring every possible branch. The above solution is inefficient. In backtracking problems we might need to explore a big tree of possiblities but it's really important to limit the possible options (if possible) because if you don't constraint yourself a little bit then the code will take long execution time.
+
+If you make the decision tree or the recursion call stack tree, you will find many branches which are wasteful because they are not likely to lead to a successful outcome.
+
+You can try counting the number of times the above function `dice_sum_helper` is being executed.

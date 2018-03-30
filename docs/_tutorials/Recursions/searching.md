@@ -143,4 +143,4 @@ if __name__ == '__main__':
         print 'ind:', ind
 ```
 
-
+**Time complexity = O(log2(n))**
