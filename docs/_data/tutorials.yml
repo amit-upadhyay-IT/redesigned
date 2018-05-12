@@ -16,13 +16,14 @@
   tutorials:
   - heap-introduction
 
-# - title: Recursions & Backtracking
-#   tutorials:
-#   - recursion-introduction
-#   - searching
-#   - exhaustive-search
-#   - fractals
-#   - backtracking
+- title: Recursions & Backtracking
+  tutorials:
+  - recursion-introduction
+  - searching
+  - exhaustive-search
+  - non-linear-recurrence-relation
+  - fractals
+  - backtracking
 
 - title: LinkedList
   tutorials:
