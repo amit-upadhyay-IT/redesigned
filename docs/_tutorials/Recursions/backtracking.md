@@ -158,10 +158,6 @@ The asymptotic time complexity would still be O(6^n)
 {: .info .note}
 Write a function that accepts a string as a parameter and outputs all possible rearrangements of the letter in that string.
 
-Again, as with every recursion problem try to see how is this problem self-similar (optimal substructure) in nature?
-
-You can first choose a letter and then leave the remaining choices of letters to be handled by the later calls of the function.
-
 To solve this problem you can make a decision tree and then simply code it. If you followed the previous posts I wrote then you should be able to code it up.
 
 Example: Possible permutation of {A,B,C}
@@ -173,3 +169,12 @@ Example: Possible permutation of {A,B,C}
            /     \        |	  \       \    \
         {AB|C}  {AC|B}  {BA,C}  {BC,A}  {CA,B}  {CB,A}
 ```
+
+Again, as with every recursion problem try to see how is this problem self-similar (optimal substructure) in nature?
+
+You can first choose a letter and then leave the remaining choices of letters to be handled by the later calls of the function.
+
+**Base case:** An empty string has no permutation, so base case would be when the string gets empty.
+**Recursive case:** Here we need to perform **Choose**, **explore** and **un-choose**. We need to form `n` branches where `n` is the length of the string. Each branch will start with one character present in the string.
+
+
