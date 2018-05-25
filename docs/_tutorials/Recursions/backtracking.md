@@ -177,4 +177,75 @@ You can first choose a letter and then leave the remaining choices of letters to
 **Base case:** An empty string has no permutation, so base case would be when the string gets empty.
 **Recursive case:** Here we need to perform **Choose**, **explore** and **un-choose**. We need to form `n` branches where `n` is the length of the string. Each branch will start with one character present in the string.
 
+Code 1:
 
+```py
+def indent(n):
+    for i in range(n):
+        print '    ',
+
+
+cnt = 0
+
+
+def permute(arr, aux):
+    global cnt
+    indent(len(aux))
+    print 'permute(', arr, ',', aux, ')'
+    if len(arr) == 0:
+        cnt += 1
+        print aux
+    else:
+        for i in range(len(arr)):
+            # choosing
+            e = arr[i]
+            aux.append(e)
+            arr.remove(e)
+            # exploring
+            permute(arr, aux)
+            # un-choose
+            arr.insert(i, e)  # appending at index before i
+            aux.pop()  # removing from the end
+
+
+if __name__ == '__main__':
+    arr = ['a', 'b', 'c', 'd']
+    aux = []
+    permute(arr, aux)
+    print '\n', cnt
+```
+
+A better code example to achieve same task is:
+
+```py
+def permute_helper(s, prefix):
+    if len(s) == 0:
+        print prefix
+    else:
+        for i in xrange(len(s)):
+            permute_helper(s[:i]+s[i+1:], prefix+s[i])
+
+
+def permute(s):
+    print '\nPermutations are:'
+    permute_helper(s, '')
+
+
+if __name__ == '__main__':
+    s = raw_input('enter string: \n')
+    permute(s)
+```
+
+# Example 1: Sublist
+
+{: .info .note}
+Write a function that finds every possible sub-list of a given list. A sub-list of a list `L` contains `>= 0` of L's element.
+
+Example:
+```
+x = {x1, x2, x3, x4}
+```
+Output:
+
+```
+```
