@@ -20,6 +20,7 @@
   tutorials:
   - recursion-introduction
   - searching
+  - tail-recursion
   - exhaustive-search
   - non-linear-recurrence-relation
   - fractals
