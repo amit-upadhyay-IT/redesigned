@@ -26,6 +26,11 @@
   - fractals
   - backtracking
 
+- title: Dynamic Programming
+  tutorials:
+  - play-with-a-random-code
+  
+
 - title: LinkedList
   tutorials:
   - linkedlist-introduction

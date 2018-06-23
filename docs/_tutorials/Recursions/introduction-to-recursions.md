@@ -176,6 +176,17 @@ def power_optimized(x, y):
 
 Here the value gets computed only once and it can be used again in the same stack at the time of backtracking. So time complexity is **O(log2(n))**.
 
+Also, how about using tail recursion concept? Below is an example code for it and its running time complexity is also **O(log2(n))**.
+
+```py
+def power(x, y)
+    if y == 0:
+        return 1
+    if y & 1:
+        return x * power(x, y-1)  # y is odd
+    return power(x*x, y/2)   # y is even
+```
+
 ## Example 3: Palindrome
 
 Write a function that accepts a string and returns `true` if it reads the same forward as backward.
