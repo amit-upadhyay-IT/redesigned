@@ -1,7 +1,7 @@
 ---
 layout: tutorials
 permalink: /tutorials/play-with-a-random-code/
-title: Play with me
+title: Play with a random code
 ---
 
 Before I tell what is `dp`? I would like you to go through an example code.
@@ -126,8 +126,8 @@ def F(n, dp):
     result = -1
     # base case
     if n == 0:
-        dp.append(0)  # putting dp[0] = 0, as its the base case
-        return 0
+        dp.append(1)  # putting dp[0] = 1, as its the base case, 2^0=1
+        return 1
     else:
         for i in xrange(n):
             # check if dp array has already that index value computed or not
@@ -147,6 +147,97 @@ if __name__ == '__main__':
     print '\n', (time.time()-start_time)
 ```
 
-So, that's how I converted a time consuming recursive program into optimized solution. You try to write your solution using dynamic programming approach after understanding the decision tree formed from the recursive solution.
+So, that's how I converted a time consuming recursive program into optimized solution. You should also try to write your solution using dynamic programming approach after understanding the decision tree formed from the recursive solution.
 
 The time complexity of the above function seems to be **O(n)**.
+
+Here I observe that, although that asymptotic time seems to be O(n) but the increase in computation time with respect to the input size doesn't increase linearly.
+
+Here are some results for program written in python.
+
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Computation time(sec)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p><code>1000</code></p></td>
+      <td><p>
+      <code>0.0851130485535</code>
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>2000</code></p></td>
+      <td><p>
+
+       <code>0.384564161301</code>
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>3000</code></p></td>
+      <td><p>
+    <code>0.936266899109</code>
+      </p></td>
+    </tr>
+    
+        <tr>
+      <td><p><code>4000</code></p></td>
+      <td><p>
+	<code>1.81402897835</code>
+      </p></td>
+    </tr>
+    
+        <tr>
+      <td><p><code>5000</code></p></td>
+      <td><p>
+    <code>3.06361985207</code>
+      </p></td>
+    </tr>
+    
+        <tr>
+      <td><p><code>6000</code></p></td>
+      <td><p>
+    <code>4.79065895081</code>
+      </p></td>
+    </tr>
+    
+        <tr>
+      <td><p><code>7000</code></p></td>
+      <td><p>
+    <code>7.08289003372</code>
+      </p></td>
+    </tr>
+    
+        <tr>
+      <td><p><code>8000</code></p></td>
+      <td><p>
+    <code>9.93244814873</code>
+      </p></td>
+    </tr>
+    
+    <tr>
+      <td><p><code>9000</code></p></td>
+      <td><p>
+    <code>13.4481990337</code>
+      </p></td>
+    </tr>
+    
+	<tr>
+      <td><p><code>10000</code></p></td>
+      <td><p>
+    <code>17.6547398567</code>
+      </p></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+The input vs time graph looks like this:
+
+
+![graph](https://raw.githubusercontent.com/amit-upadhyay-IT/redesigned-blog/master/docs/_tutorials/images/dp1graph.png)
